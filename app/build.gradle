@@ -1,19 +1,21 @@
 apply plugin: 'com.android.application'
+
 static def getDate() {
     return new Date().format('dd.MM.yyyy')
 }
+
 android {
     compileSdkVersion 31
     buildToolsVersion "31.0.0"
     defaultConfig {
-        applicationId "nami.apps.dbsqlxmlconverter"
-        minSdkVersion 23
-        targetSdkVersion 31
-        versionCode 1
+        applicationId "nami.apps.dbsql_xml_converter"
+        minSdkVersion 21
+        versionCode 4
         versionName "0.0.8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        setProperty("archivesBaseName", "DBSqlXmlConverter-$versionName-${getDate()}")
+        setProperty("archivesBaseName", "DB_SQL_XML_Converter-$versionName-${getDate()}")
+        targetSdkVersion 31
     }
     buildTypes {
         release {
@@ -27,9 +29,16 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'com.android.support:multidex:1.0.2'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.google.android.material:material:1.1.0-alpha10'
-    implementation 'com.github.hendrawd:StorageUtil:1.1.0'
+    // androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //3rd party
+    implementation 'com.github.hendrawd:StorageUtil:1.0.0'
 }
